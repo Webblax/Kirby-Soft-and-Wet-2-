@@ -6,6 +6,7 @@ function scr_KSW_AddFish(targetName,targetSprite,targetPalette,targetSeries,targ
 	{
 		if (ds_map_exists(global.KSW_FishIDs,targetName)) scr_Debug_WriteLog("[ERROR] Duplicate Fish Found - " + string(targetName));
 		if (targetGram > 999999) scr_Debug_WriteLog("[ERROR] Grams Too High - " + string(targetGram) + " - " + string(targetName));
+		if (targetCatchScript != -1) scr_Debug_WriteLog("[ERROR] Has Catch Script, Make Sure It's Not a Typo - " + string(targetName));
 	}
 	
 	if (targetGramOffset == -1) targetGramOffset = floor(targetGram / 5);
@@ -43,6 +44,11 @@ function scr_KSW_AddFish(targetName,targetSprite,targetPalette,targetSeries,targ
 			case "androidPort":
 			targetPhaseIconLeft = spr_KSW_Menu_TitleScreen_Phase_AndroidPort;
 			targetPhaseIconLeftSmall = spr_KSW_Menu_TitleScreen_Phase_AndroidPort_Small;
+			break;
+			
+			case "cloudyPark":
+			targetPhaseIconLeft = spr_KSW_Menu_TitleScreen_Phase_CloudyPark;
+			targetPhaseIconLeftSmall = spr_KSW_Menu_TitleScreen_Phase_CloudyPark_Small;
 			break;
 		}
 	}
